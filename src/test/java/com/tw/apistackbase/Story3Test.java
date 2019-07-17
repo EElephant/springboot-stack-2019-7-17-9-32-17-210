@@ -36,5 +36,27 @@ public class Story3Test {
         assertEquals(procuratorate2,procuratorate);
     }
 
-    
+    //Story2-AC4
+    @Test
+    public void should_add_case_info_description_to_law_case_when_call_find_all(){
+        Long time1 = Long.valueOf(20190717);
+        Long time2 = Long.valueOf(20190203);
+        Procuratorate procuratorate1 = new Procuratorate("yeshila");
+        Procuratorate procuratorate2 = new Procuratorate("caixukun");
+        LawCase lawCase1 = new LawCase("Garson",time1,procuratorate1);
+        LawCase lawCase2 = new LawCase("Caixukun",time2,procuratorate2);
+        LawCase lawCase3 = new LawCase("Garson",time1,procuratorate1,"yeshila");
+        LawCase lawCase4 = new LawCase("Caixukun",time2,procuratorate2,"caixukun");
+
+        lawCaseRepository.save(lawCase1);
+        lawCaseRepository.save(lawCase2);
+        for(int i =0;i<lawCaseRepository.findAll().size();i++){
+            LawCase lawCase = lawCaseRepository.findAll().get(i);
+            lawCase.setProDescription(lawCase.getProcuratorate().getName());
+        }
+//        List<LawCase> lawCases = lawCaseRepository.findAll();
+
+        assertThat(lawCase3.toString1(),is(lawCase1.toString1()));
+        assertThat(lawCase4.toString1(),is(lawCase2.toString1()));
+    }
 }
