@@ -43,4 +43,12 @@ public class Procuratorate {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Procuratorate{" +
+                "name='" + name + '\'' +
+                ", procurators=" + procurators +
+                '}';
+    }
 }

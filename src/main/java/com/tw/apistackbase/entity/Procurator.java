@@ -1,9 +1,10 @@
 package com.tw.apistackbase.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Procurator {
+public class Procurator implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
