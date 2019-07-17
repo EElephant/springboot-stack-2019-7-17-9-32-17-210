@@ -52,8 +52,27 @@ public class ApiStackBaseApplicationTests {
 		lawCases2.add(lawCase1);
 		lawCases2.add(lawCase2);
 
-
 		assertEquals(lawCases2,lawCases1);
 	}
 
+	//Story1-AC4
+	@Test
+	public void should_return_specific_case_when_call_find_by_name_given_specofic_name(){
+		Long time1 = Long.valueOf(20190717);
+		Long time2 = Long.valueOf(20190622);
+		LawCase lawCase1 = new LawCase("Garson",time1);
+		LawCase lawCase2 = new LawCase("Garson",time2);
+		LawCase lawCase3 = new LawCase("Jucy",time2);
+
+		lawCaseRepository.save(lawCase1);
+		lawCaseRepository.save(lawCase2);
+		lawCaseRepository.save(lawCase3);
+		List<LawCase> lawCases1 = lawCaseRepository.findByName("Garson");
+		List<LawCase> lawCases2 = new ArrayList<>();
+		lawCases2.add(lawCase1);
+		lawCases2.add(lawCase2);
+
+		assertEquals(lawCases2,lawCases1);
+	}
+	
 }
