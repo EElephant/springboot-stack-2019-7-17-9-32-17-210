@@ -15,11 +15,15 @@ public class LawCase {
     private Long time;
 
     @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "caseInfo")
+    @JoinColumn(name = "caseInfo")
     private CaseInfo caseInfo;
 
     @Column(nullable = true)
     private String description;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "procuratorate")
+    private Procuratorate procuratorate;
 
     public LawCase() {
     }

@@ -1,6 +1,5 @@
 package com.tw.apistackbase;
 
-import com.tw.apistackbase.entity.CaseInfo;
 import com.tw.apistackbase.entity.LawCase;
 import com.tw.apistackbase.repository.LawCaseRepository;
 import org.junit.Test;
