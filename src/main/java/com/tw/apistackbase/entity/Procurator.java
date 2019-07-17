@@ -1,31 +1,21 @@
 package com.tw.apistackbase.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-public class Procuratorate {
+public class Procurator {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(length = 50,nullable = false)
+    @Column(length = 255,nullable = false)
     private String name;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "procurator")
-    private List<Procurator> procurators;
-
-    public Procuratorate() {
+    public Procurator() {
     }
 
-    public Procuratorate(String name) {
+    public Procurator(String name) {
         this.name = name;
-    }
-
-    public Procuratorate(String name, List<Procurator> procurators) {
-        this.name = name;
-        this.procurators = procurators;
     }
 
     public Long getId() {
