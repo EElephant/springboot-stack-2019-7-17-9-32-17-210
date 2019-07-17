@@ -74,5 +74,27 @@ public class ApiStackBaseApplicationTests {
 
 		assertEquals(lawCases2,lawCases1);
 	}
-	
+
+	//Story1-AC5
+	@Test
+	public void should_delete_specific_case_when_call_delete_by_id_given_specific_id(){
+		Long time1 = Long.valueOf(20190717);
+		Long time2 = Long.valueOf(20190622);
+		LawCase lawCase1 = new LawCase("Garson",time1);
+		LawCase lawCase2 = new LawCase("Garson",time2);
+		LawCase lawCase3 = new LawCase("Jucy",time2);
+
+		lawCaseRepository.save(lawCase1);
+		lawCaseRepository.save(lawCase2);
+		lawCaseRepository.save(lawCase3);
+		lawCaseRepository.delete(lawCase2);
+		List<LawCase> lawCases1 = lawCaseRepository.findAll();
+		List<LawCase> lawCases2 = new ArrayList<>();
+		lawCases2.add(lawCase1);
+		lawCases2.add(lawCase3);
+
+		assertEquals(lawCases2,lawCases1);
+	}
+
+	//Story2-1
 }
