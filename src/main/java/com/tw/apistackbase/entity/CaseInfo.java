@@ -1,11 +1,6 @@
 package com.tw.apistackbase.entity;
 
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 @Entity
 public class CaseInfo {
@@ -16,7 +11,7 @@ public class CaseInfo {
     @Column(length = 255)
     private String objectiveDescription;
 
-    @Column(length = 255)
+    @Column(length = 255,nullable = false)
     private String subjectiveDescription;
 
     public CaseInfo() {
