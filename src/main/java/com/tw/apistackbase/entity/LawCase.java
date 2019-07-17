@@ -25,6 +25,9 @@ public class LawCase {
     @JoinColumn(name = "procuratorate")
     private Procuratorate procuratorate;
 
+    @Column(nullable = true)
+    private String proDescription;
+
     public LawCase() {
     }
 
@@ -44,6 +47,19 @@ public class LawCase {
         this.time = time;
         this.caseInfo = caseInfo;
         this.description = description;
+    }
+
+    public LawCase(String name, Long time, Procuratorate procuratorate) {
+        this.name = name;
+        this.time = time;
+        this.procuratorate = procuratorate;
+    }
+
+    public LawCase(String name, Long time, Procuratorate procuratorate, String proDescription) {
+        this.name = name;
+        this.time = time;
+        this.procuratorate = procuratorate;
+        this.proDescription = proDescription;
     }
 
     public Long getId() {
@@ -86,6 +102,22 @@ public class LawCase {
         this.description = description;
     }
 
+    public Procuratorate getProcuratorate() {
+        return procuratorate;
+    }
+
+    public void setProcuratorate(Procuratorate procuratorate) {
+        this.procuratorate = procuratorate;
+    }
+
+    public String getProDescription() {
+        return proDescription;
+    }
+
+    public void setProDescription(String proDescription) {
+        this.proDescription = proDescription;
+    }
+
     @Override
     public String toString() {
         return "LawCase{" +
@@ -93,6 +125,17 @@ public class LawCase {
                 ", time=" + time +
                 ", caseInfo=" + caseInfo +
                 ", description='" + description + '\'' +
+                ", procuratorate=" + procuratorate +
+                ", proDescription='" + proDescription + '\'' +
+                '}';
+    }
+
+    public String toString1() {
+        return "LawCase{" +
+                "name='" + name + '\'' +
+                ", time=" + time +
+                ", procuratorate=" + procuratorate +
+                ", proDescription='" + proDescription + '\'' +
                 '}';
     }
 }
