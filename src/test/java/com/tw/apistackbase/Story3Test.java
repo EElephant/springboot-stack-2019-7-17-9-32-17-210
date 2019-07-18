@@ -5,6 +5,7 @@ import com.tw.apistackbase.entity.LawCase;
 import com.tw.apistackbase.entity.Procurator;
 import com.tw.apistackbase.entity.Procuratorate;
 import com.tw.apistackbase.repository.LawCaseRepository;
+import com.tw.apistackbase.repository.ProcuratorRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class Story3Test {
 
     @Autowired
     LawCaseRepository lawCaseRepository;
+    @Autowired
+    ProcuratorRepository procuratorRepository;
 
     //Story3.1-AC2
     @Test
@@ -87,6 +90,8 @@ public class Story3Test {
         Procurator procurator2 = new Procurator("zhazhahui");
         List<Procurator> procuratorList = new ArrayList<>();
 
+        procuratorRepository.save(procurator1);
+        procuratorRepository.save(procurator2);
         procuratorList.add(procurator1);
         procuratorList.add(procurator2);
         Procuratorate procuratorate1 = new Procuratorate("yeshila",procuratorList);
